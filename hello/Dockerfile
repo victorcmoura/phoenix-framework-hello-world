@@ -5,7 +5,7 @@ ENV HOME /opt/hello
 WORKDIR $HOME
 
 # Configure required environment
-ENV MIX_ENV prod
+ENV MIX_ENV dev
 
 # Set and expose PORT environmental variable
 ENV PORT ${PORT:-4000}
@@ -33,4 +33,4 @@ COPY . .
 RUN mix compile
 
 # Run Ecto migrations and Phoenix server as an initial command
-CMD mix do ecto.migrate, phx.server
+CMD mix do ecto.create, ecto.migrate, phx.server
